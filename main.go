@@ -15,6 +15,7 @@ var (
 func main() {
 	var conf string
 	flag.StringVar(&conf,"conf","app.conf","Config file")
+	flag.Parse()
 	log.Printf("Running Capture SQL\n")
 	util := &utils.Util{}
 	err := util.LoadConfig(conf)

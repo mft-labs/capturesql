@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"sync"
+	"time"
 )
 
 type Process struct {
@@ -30,6 +31,7 @@ func (proc *Process) RunQueries() (err error){
 		sql = fmt.Sprintf("%s\n/\n",sql)
 		proc.Util.WriteFile(infile,[]byte(sql))
 		csvfile := proc.Util.GetValue2(query,"csvfile",true)
+		columnHeaders := proc.Util.GetValue2(query,"column_header",true)
 		cmd := fmt.Sprintf(command,infile,outfile)
 		wg.Add(1)
 		//var output string
@@ -42,7 +44,7 @@ func (proc *Process) RunQueries() (err error){
 		if err == nil {
 			output, err := proc.Util.ReadFile(outfile)
 			if err == nil {
-				contents, err := proc.ParseOutput(string(output), false)
+				contents, err := proc.ParseOutput(string(output), columnHeaders,false)
 				if err == nil {
 					proc.Util.WriteFile(csvfile,[]byte(contents))
 				} else {
@@ -60,17 +62,22 @@ func (proc *Process) RunQueries() (err error){
 	return nil
 }
 
-func (proc *Process) ParseOutput(output string, debug bool) (string, error) {
+func (proc *Process) ParseOutput(output, colHeaders string, debug bool) (string, error) {
 	//log.Printf("Returning output:\n%s",output)
 	text  := strings.Split(output,"\n")
-	result := ""
+	result := colHeaders+"\n"
+	curdate := time.Now().Format("01/02/2006")
 	for idx, line := range text {
 		if debug {
 			log.Printf("%d) %s",idx+1,line)
 		}
 		if idx > 2 {
 			fields := strings.Split(line,"\t")
-			result += strings.Join(fields,",") +"\n"
+			columns := strings.Join(fields,",")
+			if len(columns)>0 {
+				result += curdate+","+columns[0:len(columns)-1] +"\n"
+			}
+
 		}
 
 	}
