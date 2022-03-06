@@ -5,7 +5,7 @@ import (
 	"gopkg.in/ini.v1"
 	"log"
 	"os"
-	"github.com/mft-labs/capturesql/utils"
+	"github.com/mft-labs/runb2bqueries/utils"
 )
 
 var (

@@ -1,4 +1,4 @@
-# capturesql
+# runb2bqueries
 
 git clone https://github.com/mft-labs/capturesql
 

@@ -1,4 +1,4 @@
-module github.com/mft-labs/capturesql
+module github.com/mft-labs/runb2bqueries
 
 go 1.16
 

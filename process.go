@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-	"github.com/mft-labs/capturesql/utils"
+	"github.com/mft-labs/runb2bqueries/utils"
 	"os"
 	"strings"
 	"sync"

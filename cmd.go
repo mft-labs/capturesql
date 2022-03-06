@@ -9,7 +9,6 @@ import (
 	"strings"
 	"sync"
 	"os/exec"
-	//"github.com/mftlabs/amfcontainer/utils"
 )
 
 func isFileExists(filename string) bool {
