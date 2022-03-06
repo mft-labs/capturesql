@@ -19,11 +19,11 @@ set GOOS=linux
 
 Compile
 ---------
-go build -ldflags="-s -w" -trimpath -o RunDbReports
+go build -ldflags="-s -w" -trimpath
 
 Running Application
 --------------------
-./RunDbReports -conf app.conf
+./runb2bqueries -conf app.conf
 
 
 
