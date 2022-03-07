@@ -14,7 +14,7 @@ var (
 )
 func main() {
 	var conf string
-	flag.StringVar(&conf,"conf","app.conf","Config file")
+	flag.StringVar(&conf,"conf","b2bqueries.conf","Config file")
 	flag.Parse()
 	log.Printf("Running runb2bqueries\n")
 	util := &utils.Util{}
