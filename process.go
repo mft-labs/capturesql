@@ -43,7 +43,7 @@ func (proc *Process) RunQueries() (err error){
 		if append != "true"{
 			csvfile = fmt.Sprintf("%s_%s.csv",csvoutPrefix,exectime)
 		}
-		columnHeaders := proc.Util.GetValue2(query,"column_header",true)
+		columnHeaders := proc.Util.GetValue2(query,"column_headers",true)
 		cmd := fmt.Sprintf(command,infile,outfile)
 		wg.Add(1)
 		//var output string

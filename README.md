@@ -20,7 +20,10 @@ go build -ldflags="-s -w" -trimpath
 
 Running Application
 --------------------
-./runb2bqueries -conf app.conf
+#### Please fix b2bqueries.conf as desired and run the application
+
+
+./runb2bqueries -conf b2bqueries.conf
 
 
 
