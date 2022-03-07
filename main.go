@@ -16,7 +16,7 @@ func main() {
 	var conf string
 	flag.StringVar(&conf,"conf","app.conf","Config file")
 	flag.Parse()
-	log.Printf("Running Capture SQL\n")
+	log.Printf("Running runb2bqueries\n")
 	util := &utils.Util{}
 	err := util.LoadConfig(conf)
 	if err!=nil {

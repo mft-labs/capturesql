@@ -19,7 +19,9 @@ func (proc *Process) RunQueries() (err error){
 	if len(queries) == 0 {
 		return fmt.Errorf("No queries found")
 	}
-	command := proc.Util.GetValue2("DEFAULT","command",true)
+	dbexec:= "/bin/db_execFile.sh -i %s -o %s -c -j -r -p -s"
+	//command := proc.Util.GetValue2("DEFAULT","command",true)
+	command := proc.Util.GetValue2("DEFAULT","sfghome",true) + dbexec
 	wg := sync.WaitGroup{}
 	log.Printf("Running queries:%v",queries)
 	qlist := strings.Split(queries,",")
