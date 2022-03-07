@@ -1,9 +1,6 @@
 # runb2bqueries
 
-git clone https://github.com/mft-labs/capturesql
-
-### Fix (2022/03/05) if flag.Parse() added manually
-git checkout main.go
+git clone https://github.com/mft-labs/runb2bqueries
 
 Pull latest changes
 -------------------
